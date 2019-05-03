@@ -11,7 +11,9 @@ class APITestBase(TestCase):
     @classmethod
     def setUpClass(cls):
         install(level='DEBUG')
-        cls.ApiUrl = cfg.get('movies')['url']
+        cls.MoviesUrl = cfg.get('movies')['url']
+        cls.UsersUrl = cfg.get('users')['url']
+        cls.ProxyUrl = cfg.get('proxy')['url']
 
     @classmethod
     def tearDownClass(cls):

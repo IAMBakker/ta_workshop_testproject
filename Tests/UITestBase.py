@@ -11,16 +11,16 @@ with open("./../config.yml", 'r') as ymlfile:
 class UITestBase(TestCase):
 
     opts = Options()
-    opts.set_headless()
-    assert opts.headless
+    # opts.set_headless()
+    # assert opts.headless
     browser = Firefox(options=opts)
 
     @classmethod
     def setUpClass(cls):
         install()
-        cls.UiUrl = cfg.get('web')['url']
+        url = cfg.get('web')['url']
 
-        cls.browser.get('http://127.0.0.1')
+        cls.browser.get(url)
 
     @classmethod
     def tearDownClass(cls):

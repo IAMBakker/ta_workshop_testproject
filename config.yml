@@ -1,3 +1,5 @@
+proxy:
+  url: http://localhost:8080/
 movies:
   url: http://localhost:4243/
 users:

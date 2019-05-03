@@ -16,8 +16,9 @@ class UITest(UITestBase, unittest.TestCase):
 
         movies = homepage.get_movies()
 
-        for mov in movies:
-            print('Key:{0}\nVal:{1}'.format(mov, movies[mov]))
+        print(movies)
+        # for mov in movies:
+        #     print('Key:{0}\nVal:{1}'.format(mov, movies[mov]))
 
     if __name__ == "__main__":
         unittest.main()

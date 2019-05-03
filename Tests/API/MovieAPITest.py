@@ -30,7 +30,7 @@ class APITest(APITestBase, unittest.TestCase):
     Expect a 501...
     '''
     def test_movies_api_post_new_movie(self):
-        movies_api = MoviesAPI(self.ApiUrl)
+        movies_api = MoviesAPI(self.MoviesUrl)
         response = movies_api.post_movie(Movie(
             imdb='tt0078446',
             title='Up in Smoke',

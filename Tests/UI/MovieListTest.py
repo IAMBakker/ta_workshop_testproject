@@ -2,10 +2,10 @@ import unittest
 from logging import getLogger
 
 from Pages.Home import Home
-from Tests.UITestBase import UITestBase
+from Tests.UI.UITestBase import UITestBase
 
 
-class UITest(UITestBase, unittest.TestCase):
+class MovieListTest(UITestBase, unittest.TestCase):
 
     getLogger('UI Tests')
 

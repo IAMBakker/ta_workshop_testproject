@@ -8,12 +8,13 @@ with open("./../../config.yml", 'r') as ymlfile:
 
 class APITestBase(TestCase):
 
+    MoviesUrl = cfg.get('movies')['url']
+    UsersUrl = cfg.get('users')['url']
+    ProxyUrl = cfg.get('proxy')['url']
+
     @classmethod
     def setUpClass(cls):
         install(level='DEBUG')
-        cls.MoviesUrl = cfg.get('movies')['url']
-        cls.UsersUrl = cfg.get('users')['url']
-        cls.ProxyUrl = cfg.get('proxy')['url']
 
     @classmethod
     def tearDownClass(cls):

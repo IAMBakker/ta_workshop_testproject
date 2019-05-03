@@ -1,6 +1,4 @@
-import json
 import requests
-from Model.BackendUser import User
 
 
 class UsersAPI:
@@ -11,10 +9,8 @@ class UsersAPI:
 
     def add_user(self, user):
         url = '{0}api/Users'.format(self.url)
-
         body = user.toJSON()
-        print(body)
-
         response = requests.post(url, headers=self.headers, data=body)
+        print(response.content.decode('utf-8'))
         return response
 

@@ -9,13 +9,20 @@ class ProxyAPITest(APITestBase, unittest.TestCase):
 
     getLogger('Proxy API')
 
+    admin_session = ProxyAPI(APITestBase.ProxyUrl, User(username='testadmin', password='admin', id=1))
+    user_session = ProxyAPI(APITestBase.ProxyUrl, User(username='testuser', password='user', id=2))
+
     def test_proxy_api_validate_admin_token(self):
-        proxy_api = ProxyAPI(self.ProxyUrl, User(username='testadmin', password='admin', id=1))
-        proxy_api.validate_token()
+        response = self.admin_session.validate_token()
+        assert response.status_code == 200
 
     def test_proxy_api_validate_user_token(self):
-        proxy_api = ProxyAPI(self.ProxyUrl, User(username='testuser', password='user', id=2))
-        proxy_api.validate_token()
+        response = self.user_session.validate_token()
+        assert response.status_code == 200
+
+    def test_proxy_api_validate_admin_has_admin_rights(self):
+        response = self.admin_session.validate_admin_token()
+        assert response.status_code == 200
 
     if __name__ == "__main__":
         unittest.main()

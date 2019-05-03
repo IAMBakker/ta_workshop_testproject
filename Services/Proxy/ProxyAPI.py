@@ -1,6 +1,5 @@
 import json
 import requests
-from Model import User
 
 
 class ProxyAPI:
@@ -14,13 +13,19 @@ class ProxyAPI:
     def get_token(self, user):
         token_url = '{0}v1/proxy/tokens/'.format(self.url)
         body = user.toJSON()
-        print(body)
-        response = requests.post(token_url, headers=self.headers, json=body)
-        print(response)
-        return response.json()
+        response = requests.post(token_url, headers=self.headers, data=body)
+        token = json.loads(response.content.decode('utf-8'))['access_token']
+        return token
 
     def validate_token(self):
         token_url = '{0}v1/proxy/tokens/'.format(self.url)
-        return requests.get(token_url, headers=self.headers)
+        response = requests.get(token_url, headers=self.headers)
+        print(response.content.decode('utf-8'))
+        return response
 
+    def validate_admin_token(self):
+        token_url = '{0}v1/proxy/tokens/admin'.format(self.url)
+        response = requests.get(token_url, headers=self.headers)
+        print(response.content.decode('utf-8'))
+        return response
 

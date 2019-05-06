@@ -1,7 +1,7 @@
 from unittest import TestCase
 from coloredlogs import install
-from selenium.webdriver import Chrome
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import Firefox
+from selenium.webdriver.firefox.options import Options
 
 from Resources.ConfigLoader import ConfigLoader
 
@@ -11,7 +11,7 @@ class UITestBase(TestCase):
     opts = Options()
     # opts.set_headless()
     # assert opts.headless
-    browser = Chrome(options=opts)
+    browser = Firefox(options=opts)
 
     @classmethod
     def setUpClass(cls):

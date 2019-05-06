@@ -1,8 +1,5 @@
 import unittest
 from logging import getLogger
-
-import xmlrunner
-
 from Services.Movies.MoviesAPI import MoviesAPI
 from Tests.API.APITestBase import APITestBase
 from Model.Movie import Movie
@@ -41,6 +38,3 @@ class MovieAPITest(APITestBase, unittest.TestCase):
             year=1978
         ))
         assert response.status_code == 501
-
-    if __name__ == "__main__":
-        unittest.main()

@@ -11,9 +11,7 @@ RUN apk add chromium chromium-chromedriver
 # install selenium
 RUN pip install selenium==3.13.0
 
-COPY . /tests
-WORKDIR /tests
-VOLUME /tests
+WORKDIR /var/lib/jenkins/workspace/ta_workshop/ta_workshop_testproject
 RUN pip install -r requirements.txt
 
 # run all tests

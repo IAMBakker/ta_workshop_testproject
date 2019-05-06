@@ -15,4 +15,5 @@ COPY . /tests
 WORKDIR /tests
 RUN pip install -r requirements.txt
 
-CMD ["nosetests", "--with-xunit"]
+# run all tests
+CMD ["pytest Tests", "--junitxml=test-reports.xml"]

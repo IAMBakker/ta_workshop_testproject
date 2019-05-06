@@ -13,6 +13,7 @@ RUN pip install selenium==3.13.0
 
 COPY . /tests
 WORKDIR /tests
+VOLUME /tests
 RUN pip install -r requirements.txt
 
 # run all tests

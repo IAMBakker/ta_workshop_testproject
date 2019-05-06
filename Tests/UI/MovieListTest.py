@@ -1,4 +1,5 @@
 import unittest
+import xmlrunner
 from logging import getLogger
 
 from Pages.Home import Home
@@ -21,4 +22,6 @@ class MovieListTest(UITestBase, unittest.TestCase):
         #     print('Key:{0}\nVal:{1}'.format(mov, movies[mov]))
 
     if __name__ == "__main__":
-        unittest.main()
+        unittest.main(
+            testRunner=xmlrunner.XMLTestRunner(output='test-reports')
+        )

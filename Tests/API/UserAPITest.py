@@ -1,5 +1,8 @@
 import unittest
 from logging import getLogger
+
+import xmlrunner
+
 from Services.Users.UsersAPI import UsersAPI
 from Tests.API.APITestBase import APITestBase
 from Model.User import User
@@ -16,4 +19,6 @@ class UserAPITest(APITestBase, unittest.TestCase):
         assert response.status_code == 201
 
     if __name__ == "__main__":
-        unittest.main()
+        unittest.main(
+            testRunner=xmlrunner.XMLTestRunner(output='test-reports')
+        )

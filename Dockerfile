@@ -15,7 +15,4 @@ COPY . /tests
 WORKDIR /tests
 RUN pip install -r requirements.txt
 
-CMD ["python", "-m", "unittest", "discover", "-s", "./Tests/API/", "-p", "*Test.py"]
-
-#CMD ["python", "-m", "unittest", "discover", "-s", "./Tests/UI/", "-p", "*Test.py"]
-
+CMD ["nosetests", "--with-xunit"]

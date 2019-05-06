@@ -43,6 +43,4 @@ class MovieAPITest(APITestBase, unittest.TestCase):
         assert response.status_code == 501
 
     if __name__ == "__main__":
-        unittest.main(
-            testRunner=xmlrunner.XMLTestRunner(output='test-reports')
-        )
+        unittest.main()

@@ -19,6 +19,4 @@ class UserAPITest(APITestBase, unittest.TestCase):
         assert response.status_code == 201
 
     if __name__ == "__main__":
-        unittest.main(
-            testRunner=xmlrunner.XMLTestRunner(output='test-reports')
-        )
+        unittest.main()

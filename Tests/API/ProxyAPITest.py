@@ -32,6 +32,4 @@ class ProxyAPITest(APITestBase, unittest.TestCase):
         assert response.status_code == 403
 
     if __name__ == "__main__":
-        unittest.main(
-            testRunner=xmlrunner.XMLTestRunner(output='test-reports')
-        )
+        unittest.main()

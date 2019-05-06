@@ -11,10 +11,15 @@ RUN apk add chromium chromium-chromedriver
 # install selenium
 RUN pip install selenium==3.13.0
 
-VOLUME ["/tc_workdir"]
-WORKDIR /tc_workdir
-COPY . /tc_workdir
-RUN pip install -r requirements.txt
+RUN useradd testcontainer
+RUN mkdir /data &amp;&amp; touch /data/x
+RUN chown -R testcontainer:testcontainer /data
+VOLUME /data
+
+WORKDIR /data
+COPY . /data
+
+RUN pip install -r Requirements.txt
 
 # run all tests
 CMD ["pytest Tests", "--junitxml=test-reports.xml"]

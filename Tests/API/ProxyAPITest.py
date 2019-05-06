@@ -24,5 +24,9 @@ class ProxyAPITest(APITestBase, unittest.TestCase):
         response = self.admin_session.validate_admin_token()
         assert response.status_code == 200
 
+    def test_proxy_api_validate_user_has_no_admin_rights(self):
+        response = self.user_session.validate_admin_token()
+        assert response.status_code == 403
+
     if __name__ == "__main__":
         unittest.main()

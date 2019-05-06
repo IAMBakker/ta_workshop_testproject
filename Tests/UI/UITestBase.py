@@ -1,11 +1,9 @@
 from unittest import TestCase
 from coloredlogs import install
-from selenium.webdriver import Firefox
-from selenium.webdriver.firefox.options import Options
-import yaml
+from selenium.webdriver import Chrome
+from selenium.webdriver.chrome.options import Options
 
-with open("./../config.yml", 'r') as ymlfile:
-    cfg = yaml.load(ymlfile)
+from Resources.ConfigLoader import ConfigLoader
 
 
 class UITestBase(TestCase):
@@ -13,12 +11,12 @@ class UITestBase(TestCase):
     opts = Options()
     # opts.set_headless()
     # assert opts.headless
-    browser = Firefox(options=opts)
+    browser = Chrome(options=opts)
 
     @classmethod
     def setUpClass(cls):
         install()
-        url = cfg.get('web')['url']
+        url = ConfigLoader.get_config().get('web')['url']
 
         cls.browser.get(url)
 

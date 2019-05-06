@@ -1,13 +1,10 @@
 from unittest import TestCase
 from coloredlogs import install
-import yaml
-
-with open("./../../config.yml", 'r') as ymlfile:
-    cfg = yaml.load(ymlfile)
+from Resources.ConfigLoader import ConfigLoader
 
 
 class APITestBase(TestCase):
-
+    cfg = ConfigLoader.get_config()
     MoviesUrl = cfg.get('movies')['url']
     UsersUrl = cfg.get('users')['url']
     ProxyUrl = cfg.get('proxy')['url']

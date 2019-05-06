@@ -5,7 +5,7 @@ from Tests.API.APITestBase import APITestBase
 from Model.Movie import Movie
 
 
-class APITest(APITestBase, unittest.TestCase):
+class MovieAPITest(APITestBase, unittest.TestCase):
 
     getLogger('Movies API')
 

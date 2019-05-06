@@ -1,5 +1,4 @@
 from Pages.PageBase import PageBase
-from selenium import webdriver
 
 
 class Home(PageBase):

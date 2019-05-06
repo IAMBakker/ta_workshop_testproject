@@ -11,9 +11,8 @@ RUN apk add chromium chromium-chromedriver
 # install selenium
 RUN pip install selenium==3.13.0
 
-RUN mkdir /tests
+COPY . /tests
 WORKDIR /tests
-COPY requirements.txt
 RUN pip install -r requirements.txt
 
 RUN python -m unittest discover -s ./Tests/API/ -p "*Test.py"

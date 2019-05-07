@@ -11,8 +11,8 @@ RUN apk add chromium chromium-chromedriver
 # install selenium
 RUN pip install selenium==3.13.0
 
-WORKDIR /docker_test
 COPY . /docker_test
+WORKDIR /docker_test
 
 RUN pip install -r Requirements.txt
 

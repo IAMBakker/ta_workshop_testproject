@@ -16,5 +16,6 @@ WORKDIR /docker_test
 
 # run all tests
 CMD ["sh", "test.sh"]
+RUN sleep 10
 RUN ls
 COPY /docker_test/test-reports.xml /output_folder

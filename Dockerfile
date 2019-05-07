@@ -18,5 +18,5 @@ RUN pip install -r requirements.txt
 
 # run all tests
 CMD ["pytest Tests", "--junitxml=test-reports.xml"]
-
+RUN ls
 COPY /docker_test/test-reports.xml /output_folder

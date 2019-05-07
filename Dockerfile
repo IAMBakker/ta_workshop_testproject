@@ -14,7 +14,9 @@ RUN pip install selenium==3.13.0
 COPY . /docker_test
 WORKDIR /docker_test
 
-RUN pip install -r Requirements.txt
+RUN pip install -r requirements.txt
 
 # run all tests
 CMD ["pytest Tests", "--junitxml=test-reports.xml"]
+
+COPY /docker_test/test-reports.xml /output_folder

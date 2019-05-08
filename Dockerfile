@@ -21,7 +21,12 @@ RUN mv geckodriver /usr/local/bin/
 # install selenium
 RUN pip install selenium==3.13.0
 
+RUN mkdir /output_folder
+VOLUME /output_folder
+
 COPY . /docker_test
 WORKDIR /docker_test
 
 RUN pip install -r requirements.txt
+
+CMD pytest --junitxml=/output_folder/test-reports.xml

@@ -2,11 +2,21 @@ FROM python:3.7-alpine3.8
 
 # update apk repo
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
-    echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
+    echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories && \
+    echo "http://dl-4.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories && \
+    echo "http://dl-4.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/repositories
+
 
 # install chromedriver
 RUN apk update
-RUN apk add chromium chromium-chromedriver
+RUN apk add firefox
+
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.24.0/geckodriver-v0.24.0-linux64.tar.gz
+RUN tar -xvzf geckodriver*
+RUN chmod +x geckodriver
+RUN mv geckodriver /usr/local/bin/
+#RUN apk add chromium chromium-chromedriver
+
 
 # install selenium
 RUN pip install selenium==3.13.0
@@ -14,8 +24,4 @@ RUN pip install selenium==3.13.0
 COPY . /docker_test
 WORKDIR /docker_test
 
-# run all tests
-CMD ["sh", "test.sh"]
-RUN sleep 10
-RUN ls
-COPY /docker_test/test-reports.xml /output_folder
+RUN pip install -r requirements.txt

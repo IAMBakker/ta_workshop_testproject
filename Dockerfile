@@ -4,8 +4,8 @@ FROM python:3.7-alpine3.8
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
     echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
 
-RUN apk update
 # install firefox
+RUN apk update
 RUN apk add firefox-esr
 
 # install geckodriver and adding to path

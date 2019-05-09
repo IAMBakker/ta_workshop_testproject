@@ -1,0 +1,34 @@
+# To execute this docker-compose yml file use `docker-compose -f <file_name> up`
+# Add the `-d` flag at the end for detached execution
+version: '2'
+services:
+  firefox:
+    image: selenium/node-firefox:3.141.59-neon
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+
+  chrome:
+    image: selenium/node-chrome:3.141.59-neon
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - hub
+    environment:
+      HUB_HOST: hub
+
+  hub:
+    image: selenium/hub:3.141.59-neon
+    ports:
+      - "4444:4444"
+
+  test_container:
+    container_name: test_container
+    build: .
+    volumes:
+      - /var/lib/jenkins/workspace/ta_workshop/output:/output_folder
+    network_mode: host
+

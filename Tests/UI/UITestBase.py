@@ -1,17 +1,13 @@
 from unittest import TestCase
 from coloredlogs import install
-from selenium.webdriver import Firefox
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.remote.webdriver import WebDriver
 
 from Resources.ConfigLoader import ConfigLoader
 
 
 class UITestBase(TestCase):
 
-    opts = Options()
-    # opts.set_headless()
-    # assert opts.headless
-    browser = Firefox(options=opts)
+    browser = WebDriver(ConfigLoader.get_config().get('hub')['url'], "firefox")
 
     @classmethod
     def setUpClass(cls):

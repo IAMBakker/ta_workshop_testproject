@@ -25,14 +25,14 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
-  test_container:
-    container_name: test_container
-    depends_on:
-      - selenium-hub
-      - chrome
-      - firefox
-    build: .
-    volumes:
-      - /var/lib/jenkins/workspace/ta_workshop/output:/output_folder
-    network_mode: host
+#  test_container:
+#    container_name: test_container
+#    depends_on:
+#      - selenium-hub
+#      - chrome
+#      - firefox
+#    build: .
+#    volumes:
+#      - /var/lib/jenkins/workspace/ta_workshop/output:/output_folder
+#    network_mode: host
 

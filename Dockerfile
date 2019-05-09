@@ -20,7 +20,7 @@ RUN mv geckodriver /usr/local/bin/
 RUN pip install selenium==3.13.0
 
 # creating an output directory which will be assigned a volume during runtime (jenkins workspace)
-RUN mkdir /output_folder
+RUN mkdir -m 777 /output_folder
 VOLUME /output_folder
 
 # creating a workspace directory where the test project will be built

@@ -1,5 +1,6 @@
 from unittest import TestCase
 from coloredlogs import install
+from selenium.webdriver import FirefoxProfile
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from Resources.ConfigLoader import ConfigLoader
@@ -7,7 +8,7 @@ from Resources.ConfigLoader import ConfigLoader
 
 class UITestBase(TestCase):
 
-    browser = WebDriver(ConfigLoader.get_config().get('webdriver')['url'], "firefox")
+    browser = WebDriver(browser_profile=FirefoxProfile())
 
     @classmethod
     def setUpClass(cls):

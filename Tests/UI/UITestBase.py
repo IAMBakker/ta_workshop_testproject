@@ -7,7 +7,7 @@ from Resources.ConfigLoader import ConfigLoader
 
 class UITestBase(TestCase):
 
-    browser = WebDriver(ConfigLoader.get_config().get('hub')['url'], "firefox")
+    browser = WebDriver(ConfigLoader.get_config().get('webdriver')['url'], "firefox")
 
     @classmethod
     def setUpClass(cls):

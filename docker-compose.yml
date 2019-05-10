@@ -30,7 +30,7 @@ services:
 networks:
   default:
     external:
-      name: ta_workshop
+      name: ta_workshop_default
 #  test_container:
 #    container_name: test_container
 #    depends_on:

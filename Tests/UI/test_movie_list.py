@@ -18,3 +18,8 @@ class MovieListTest(UITestBase, unittest.TestCase):
         print(movies)
         # for mov in movies:
         #     print('Key:{0}\nVal:{1}'.format(mov, movies[mov]))
+
+    def test_the_connection_with_wd_hub(self):
+        print("it works")
+        self.browser.get("http://www.google.com")
+        self.browser.get_screenshot_as_file('/Screenshots/google.png')

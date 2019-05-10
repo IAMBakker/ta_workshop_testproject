@@ -14,6 +14,7 @@ class ProxyAPI:
         token_url = '{0}v1/proxy/tokens/'.format(self.url)
         body = user.toJSON()
         response = requests.post(token_url, headers=self.headers, data=body)
+        print(response.content)
         token = json.loads(response.content.decode('utf-8'))['access_token']
         return token
 

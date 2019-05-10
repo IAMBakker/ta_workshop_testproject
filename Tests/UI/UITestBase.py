@@ -1,17 +1,20 @@
 from unittest import TestCase
+
 from coloredlogs import install
-from selenium.webdriver import FirefoxProfile
-from selenium.webdriver.remote.webdriver import WebDriver
+from selenium import webdriver
+from selenium.webdriver import DesiredCapabilities
 
 from Resources.ConfigLoader import ConfigLoader
 
 
 class UITestBase(TestCase):
 
-    browser = WebDriver(browser_profile=FirefoxProfile())
 
     @classmethod
     def setUpClass(cls):
+        cls.browser = webdriver.Remote(
+            command_executor="http://localhost:4444/wd/hub",
+            desired_capabilities=DesiredCapabilities.FIREFOX.copy())
         install()
         url = ConfigLoader.get_config().get('web')['url']
 

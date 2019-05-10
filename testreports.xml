@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="1" failures="0" name="pytest" skipped="0" tests="1" time="0.741"><testcase classname="" file="Tests/API/test_proxy_api.py" name="Tests.API.test_proxy_api" time="0.000"><error message="collection failure">Tests/API/test_proxy_api.py:8: in &lt;module&gt;
+    class ProxyAPITest(APITestBase, unittest.TestCase):
+Tests/API/test_proxy_api.py:12: in ProxyAPITest
+    admin_session = ProxyAPI(APITestBase.ProxyUrl, User(username=&apos;testadmin&apos;, password=&apos;admin&apos;, id=1))
+Services/Proxy/ProxyAPI.py:10: in __init__
+    self.token = self.get_token(user)
+Services/Proxy/ProxyAPI.py:18: in get_token
+    token = json.loads(response.content.decode(&apos;utf-8&apos;))[&apos;access_token&apos;]
+/usr/lib/python3.6/json/__init__.py:354: in loads
+    return _default_decoder.decode(s)
+/usr/lib/python3.6/json/decoder.py:339: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+/usr/lib/python3.6/json/decoder.py:357: in raw_decode
+    raise JSONDecodeError(&quot;Expecting value&quot;, s, err.value) from None
+E   json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)</error></testcase></testsuite>

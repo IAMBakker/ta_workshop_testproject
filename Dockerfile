@@ -18,4 +18,4 @@ WORKDIR /docker_test
 RUN pip install -r requirements.txt
 
 # the command that will be executed when we run the container
-CMD pytest --junitxml=/output_folder/test-reports.xml
+CMD pytest -s -v --junitxml=/output_folder/test-reports.xml

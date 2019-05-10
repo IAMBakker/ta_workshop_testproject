@@ -17,7 +17,7 @@ RUN mv geckodriver /usr/local/bin/
 #RUN apk add chromium chromium-chromedriver
 
 # install selenium
-RUN pip install selenium==3.13.0
+RUN pip install selenium==3.14.0
 
 # creating an output directory which will be assigned a volume during runtime (jenkins workspace)
 RUN mkdir /output_folder

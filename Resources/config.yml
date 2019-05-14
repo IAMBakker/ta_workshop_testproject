@@ -8,3 +8,9 @@ web:
   url: http://localhost/
 webdriver:
   url: http://localhost:4444/wd/hub
+database:
+  name: testautomation
+  host: localhost
+  user:
+    name: postgres
+    password: test

@@ -5,6 +5,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories
     echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
 
 RUN apk update
+RUN apk add postgresql-dev
 
 # creating an output directory which will be assigned a volume during runtime (jenkins workspace)
 RUN mkdir /output_folder

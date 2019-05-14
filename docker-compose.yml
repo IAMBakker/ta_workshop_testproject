@@ -23,7 +23,7 @@ services:
       - /dev/shm:/dev/shm
     depends_on:
       - selenium-hub
-#    network_mode: host
+    network_mode: host
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444

@@ -10,8 +10,11 @@ from Model.User import User
 class UserAPITest(APITestBase, unittest.TestCase):
 
     getLogger('User API')
-    user_api = UsersAPI(APITestBase.UsersUrl)
     db = UserDB()
+
+    @classmethod
+    def setup_class(cls):
+        cls.user_api = UsersAPI(APITestBase.UsersUrl)
 
     def test_add_admin_user(self):
         to_be_added_user = User(username="piet_piraat4", password='test123', role='admin', active=True)

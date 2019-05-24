@@ -9,8 +9,10 @@ class ProxyAPITest(APITestBase, unittest.TestCase):
 
     getLogger('Proxy API')
 
-    admin_session = ProxyAPI(APITestBase.ProxyUrl, User(username='testadmin', password='admin', id=1))
-    user_session = ProxyAPI(APITestBase.ProxyUrl, User(username='testuser', password='user', id=2))
+    @classmethod
+    def setup_class(cls):
+        cls.admin_session = ProxyAPI(APITestBase.ProxyUrl, User(username='testadmin', password='admin', id=1))
+        cls.user_session = ProxyAPI(APITestBase.ProxyUrl, User(username='testuser', password='user', id=2))
 
     def test_proxy_api_validate_admin_token(self):
         response = self.admin_session.validate_token()

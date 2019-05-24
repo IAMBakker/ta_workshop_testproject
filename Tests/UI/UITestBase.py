@@ -23,5 +23,4 @@ class UITestBase(TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.browser.close()
-        quit()
         print('-------------Test Finished-------------')

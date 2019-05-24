@@ -4,8 +4,10 @@ FROM python:3.7-alpine3.8
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.8/main" >> /etc/apk/repositories && \
     echo "http://dl-4.alpinelinux.org/alpine/v3.8/community" >> /etc/apk/repositories
 
-RUN apk update
-RUN apk add postgresql-dev
+# Installing build dependencies
+RUN apk update && apk add libpq
+RUN apk add --virtual .build-deps gcc python-dev musl-dev postgresql-dev
+
 
 # creating an output directory which will be assigned a volume during runtime (jenkins workspace)
 RUN mkdir /output_folder

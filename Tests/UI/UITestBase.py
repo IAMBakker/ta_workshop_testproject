@@ -1,6 +1,5 @@
 import unittest
 
-import pytest
 from coloredlogs import install
 from selenium import webdriver
 from selenium.webdriver import DesiredCapabilities
@@ -15,10 +14,10 @@ class UITestBase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.browser = WebDriver()
-        # cls.browser = webdriver.Remote(
-        #     command_executor=f"{ConfigLoader.get_config().get('webdriver')['url']}/wd/hub",
-        #     desired_capabilities=DesiredCapabilities.FIREFOX.copy())
+        # cls.browser = WebDriver()
+        cls.browser = webdriver.Remote(
+            command_executor=f"{ConfigLoader.get_config().get('webdriver')['url']}/wd/hub",
+            desired_capabilities=DesiredCapabilities.FIREFOX.copy())
         install()
         """Required step. Even though we repeat it in the setUp()"""
         cls.browser.get(cls.url)

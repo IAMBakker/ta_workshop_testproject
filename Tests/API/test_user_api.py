@@ -10,10 +10,10 @@ from Model.User import User
 class UserAPITest(APITestBase, unittest.TestCase):
 
     getLogger('User API')
-    db = UserDB()
 
     @classmethod
     def setup_class(cls):
+        cls.db = UserDB()
         cls.user_api = UsersAPI(APITestBase.UsersUrl)
 
     def test_add_admin_user(self):
